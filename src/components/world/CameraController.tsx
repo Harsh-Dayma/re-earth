@@ -124,7 +124,11 @@ export const CameraController: React.FC = () => {
     returnToWorld,
     setCameraRadius,
     scrollProgress,
-    activeChapter
+    activeChapter,
+    isEarthImmersive,
+    exitImmersiveOrbit,
+    resetImmersiveCamera,
+    immersiveResetTrigger
   } = useWorldStore()
 
   // Current camera spherical coordinates and target lookAt point
@@ -140,7 +144,7 @@ export const CameraController: React.FC = () => {
   // Target radius for smooth zoom overrides
   const targetRadius = useRef(10.2)
 
-  // User manual drag offset accumulated from dragging
+  // User manual drag offset accumulated from dragging in narrative mode
   const dragOffset = useRef({ theta: 0, phi: 0 })
   // Rotational velocity for natural physical damping / inertia
   const velocity = useRef({ theta: 0, phi: 0 })
@@ -161,13 +165,21 @@ export const CameraController: React.FC = () => {
         maxRadius: 24.0
       }
     }
+    if (isEarthImmersive) {
+      return {
+        minPhi: 0.08,
+        maxPhi: Math.PI - 0.08,
+        minRadius: 4.8,
+        maxRadius: 14.5
+      }
+    }
     return {
       minPhi: 0.1,
       maxPhi: Math.PI - 0.1,
       minRadius: 4.5,
       maxRadius: 15.0
     }
-  }, [viewMode])
+  }, [viewMode, isEarthImmersive])
 
   // Cancel any active tween
   const cancelTween = useCallback(() => {
@@ -183,7 +195,12 @@ export const CameraController: React.FC = () => {
     const handlePointerDown = (e: PointerEvent) => {
       // Don't intercept clicks on UI buttons, inputs, links, or drawer controls
       const target = e.target as HTMLElement
-      if (target && target.closest('button, input, select, textarea, a, [role="button"], aside, .spatial-glass, [data-prevent-drag]')) {
+      if (
+        target &&
+        target.closest(
+          'button, input, select, textarea, a, [role="button"], aside, .spatial-glass, [data-prevent-drag]'
+        )
+      ) {
         return
       }
       if (e.button !== 0) return // Left click only
@@ -206,12 +223,22 @@ export const CameraController: React.FC = () => {
       velocity.current.theta = -dx * rotSpeed
       velocity.current.phi = -dy * rotSpeed
 
-      dragOffset.current.theta += velocity.current.theta
-      dragOffset.current.phi = THREE.MathUtils.clamp(
-        dragOffset.current.phi + velocity.current.phi,
-        -Math.PI / 3,
-        Math.PI / 3
-      )
+      if (isEarthImmersive) {
+        // Direct, unrestricted full-sphere rotation
+        current.current.theta += velocity.current.theta
+        current.current.phi = THREE.MathUtils.clamp(
+          current.current.phi + velocity.current.phi,
+          0.08,
+          Math.PI - 0.08
+        )
+      } else {
+        dragOffset.current.theta += velocity.current.theta
+        dragOffset.current.phi = THREE.MathUtils.clamp(
+          dragOffset.current.phi + velocity.current.phi,
+          -Math.PI / 3,
+          Math.PI / 3
+        )
+      }
     }
 
     const handlePointerUp = () => {
@@ -221,14 +248,32 @@ export const CameraController: React.FC = () => {
       }
     }
 
-    // Keyboard zoom controls (+ / -) for accessibility without interfering with page scroll
+    // Wheel zoom handling in immersive mode without interfering with page
+    const handleWheel = (e: WheelEvent) => {
+      if (!isEarthImmersive) return
+      e.preventDefault()
+      const zoomDelta = e.deltaY * 0.006
+      targetRadius.current = THREE.MathUtils.clamp(
+        targetRadius.current + zoomDelta,
+        4.8,
+        14.5
+      )
+    }
+
+    // Keyboard zoom controls (+ / -), reset (R), and exit (Esc)
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        returnToWorld()
+        if (isEarthImmersive) {
+          exitImmersiveOrbit()
+        } else {
+          returnToWorld()
+        }
+      } else if (e.key.toLowerCase() === 'r' && isEarthImmersive) {
+        resetImmersiveCamera()
       } else if (e.key === '=' || e.key === '+') {
         targetRadius.current = Math.max(4.8, targetRadius.current - 0.8)
       } else if (e.key === '-' || e.key === '_') {
-        targetRadius.current = Math.min(14.0, targetRadius.current + 0.8)
+        targetRadius.current = Math.min(14.5, targetRadius.current + 0.8)
       }
     }
 
@@ -236,6 +281,7 @@ export const CameraController: React.FC = () => {
     window.addEventListener('pointermove', handlePointerMove)
     window.addEventListener('pointerup', handlePointerUp)
     window.addEventListener('pointercancel', handlePointerUp)
+    window.addEventListener('wheel', handleWheel, { passive: false })
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
@@ -243,12 +289,81 @@ export const CameraController: React.FC = () => {
       window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('pointerup', handlePointerUp)
       window.removeEventListener('pointercancel', handlePointerUp)
+      window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('keydown', handleKeyDown)
       document.body.style.cursor = 'default'
     }
-  }, [cancelTween, returnToWorld])
+  }, [cancelTween, returnToWorld, isEarthImmersive, exitImmersiveOrbit, resetImmersiveCamera])
 
-  // 2. React to Campus or Region Selection
+  // 2. React to Immersive Mode Activation / Exit
+  useEffect(() => {
+    cancelTween()
+    if (isEarthImmersive) {
+      isTargetingCampus.current = true
+      const targetR = window.innerWidth < 768 ? 10.5 : 8.8
+      targetRadius.current = targetR
+
+      tweenRef.current = gsap.to(current.current, {
+        radius: targetR,
+        targetX: 0,
+        targetY: 0,
+        targetZ: 0,
+        duration: 1.2,
+        ease: 'power2.out',
+        onComplete: () => {
+          isTargetingCampus.current = false
+          tweenRef.current = null
+        }
+      })
+    } else {
+      // Exiting immersive mode: return smoothly to current scroll waypoint
+      const base = interpolateWaypoints(scrollProgress)
+      isTargetingCampus.current = true
+      targetRadius.current = base.radius
+      dragOffset.current = { theta: 0, phi: 0 }
+
+      tweenRef.current = gsap.to(current.current, {
+        radius: base.radius,
+        phi: base.phi,
+        theta: base.theta,
+        targetX: base.targetX,
+        targetY: base.targetY,
+        targetZ: base.targetZ,
+        duration: 1.2,
+        ease: 'power2.out',
+        onComplete: () => {
+          isTargetingCampus.current = false
+          tweenRef.current = null
+        }
+      })
+    }
+  }, [isEarthImmersive, cancelTween, scrollProgress])
+
+  // 3. React to Reset Camera in Immersive Mode
+  useEffect(() => {
+    if (immersiveResetTrigger > 0 && isEarthImmersive) {
+      cancelTween()
+      isTargetingCampus.current = true
+      const targetR = window.innerWidth < 768 ? 10.5 : 8.8
+      targetRadius.current = targetR
+
+      tweenRef.current = gsap.to(current.current, {
+        radius: targetR,
+        phi: 68 * DEG2RAD,
+        targetX: 0,
+        targetY: 0,
+        targetZ: 0,
+        duration: 0.9,
+        ease: 'power2.out',
+        onComplete: () => {
+          isTargetingCampus.current = false
+          tweenRef.current = null
+        }
+      })
+    }
+  }, [immersiveResetTrigger, isEarthImmersive, cancelTween])
+
+  // 4. React to Campus or Region Selection
   useEffect(() => {
     cancelTween()
 
@@ -276,7 +391,6 @@ export const CameraController: React.FC = () => {
       if (campus) {
         const phi = (90 - campus.lat) * DEG2RAD
         const theta = (campus.lng + 180) * DEG2RAD
-
         const pos = geoToVector3(campus.lat, campus.lng, 3.0)
 
         // Shortest angular path around theta
@@ -286,16 +400,16 @@ export const CameraController: React.FC = () => {
         const targetTheta = current.current.theta + diffTheta
 
         isTargetingCampus.current = true
-        targetRadius.current = 6.8
+        targetRadius.current = isEarthImmersive ? 7.2 : 6.8
 
         tweenRef.current = gsap.to(current.current, {
-          radius: 6.8,
+          radius: targetRadius.current,
           phi: Math.max(0.2, Math.min(Math.PI - 0.2, phi)),
           theta: targetTheta,
-          targetX: pos.x * 0.3,
-          targetY: pos.y * 0.3,
-          targetZ: pos.z * 0.3,
-          duration: 1.5,
+          targetX: isEarthImmersive ? 0 : pos.x * 0.3,
+          targetY: isEarthImmersive ? 0 : pos.y * 0.3,
+          targetZ: isEarthImmersive ? 0 : pos.z * 0.3,
+          duration: 1.4,
           ease: 'power2.out',
           onComplete: () => {
             isTargetingCampus.current = false
@@ -303,7 +417,7 @@ export const CameraController: React.FC = () => {
           }
         })
       }
-    } else if (selectedRegionId) {
+    } else if (selectedRegionId && !isEarthImmersive) {
       const region = REGIONS.find((r) => r.id === selectedRegionId)
       if (region) {
         const phi = (90 - region.lat) * DEG2RAD
@@ -332,7 +446,7 @@ export const CameraController: React.FC = () => {
           }
         })
       }
-    } else {
+    } else if (!isEarthImmersive) {
       // Returned to world: gently reset drag offset
       dragOffset.current = { theta: 0, phi: 0 }
     }
@@ -340,57 +454,77 @@ export const CameraController: React.FC = () => {
     return () => {
       cancelTween()
     }
-  }, [viewMode, selectedCampusId, selectedRegionId, campuses, cancelTween])
+  }, [viewMode, selectedCampusId, selectedRegionId, campuses, cancelTween, isEarthImmersive])
 
-  // 3. Frame Tick: Synchronize with Scroll Progress & User Drag
+  // 5. Frame Tick: Synchronize Camera Position
   useFrame((_, delta) => {
     const { minPhi, maxPhi, minRadius, maxRadius } = getLimits()
 
-    // Decay drag velocity
-    if (Math.abs(velocity.current.theta) > 0.00005 || Math.abs(velocity.current.phi) > 0.00005) {
-      dragOffset.current.theta += velocity.current.theta
-      dragOffset.current.phi = THREE.MathUtils.clamp(
-        dragOffset.current.phi + velocity.current.phi,
-        -Math.PI / 3,
-        Math.PI / 3
-      )
-      velocity.current.theta *= 0.92
-      velocity.current.phi *= 0.92
-    }
-
-    // If not actively tweening to a focused campus or skyline
-    if (!isTargetingCampus.current && viewMode === 'globe') {
-      // Calculate waypoint base from scroll progress
-      const base = interpolateWaypoints(scrollProgress)
-
-      // Add ambient subtle rotation in chapter 0
-      let ambient = 0
-      if (activeChapter === 0 && !isDragging.current) {
-        ambient = delta * 0.02
-        dragOffset.current.theta += ambient
+    if (isEarthImmersive) {
+      // Free Orbit Inertial Decay
+      if (Math.abs(velocity.current.theta) > 0.00005 || Math.abs(velocity.current.phi) > 0.00005) {
+        current.current.theta += velocity.current.theta
+        current.current.phi = THREE.MathUtils.clamp(
+          current.current.phi + velocity.current.phi,
+          minPhi,
+          maxPhi
+        )
+        velocity.current.theta *= 0.92
+        velocity.current.phi *= 0.92
       }
 
-      // Compute target values blending scroll waypoint and user drag
-      const targetPhi = THREE.MathUtils.clamp(base.phi + dragOffset.current.phi, minPhi, maxPhi)
-      const targetTheta = base.theta + dragOffset.current.theta
-      const targetR = THREE.MathUtils.clamp(base.radius, minRadius, maxRadius)
+      if (!isTargetingCampus.current) {
+        // Smooth zoom dampening toward targetRadius
+        const lerpSpeed = Math.min(1, delta * 7.0)
+        current.current.radius += (targetRadius.current - current.current.radius) * lerpSpeed
+        current.current.targetX += (0 - current.current.targetX) * lerpSpeed
+        current.current.targetY += (0 - current.current.targetY) * lerpSpeed
+        current.current.targetZ += (0 - current.current.targetZ) * lerpSpeed
 
-      // Smooth lerp for ultra-silky camera transition
-      const lerpSpeed = Math.min(1, delta * 6.0)
-      current.current.radius += (targetR - current.current.radius) * lerpSpeed
-      current.current.phi += (targetPhi - current.current.phi) * lerpSpeed
+        setCameraRadius(current.current.radius)
+      }
+    } else {
+      // Narrative Scroll Mode
+      if (Math.abs(velocity.current.theta) > 0.00005 || Math.abs(velocity.current.phi) > 0.00005) {
+        dragOffset.current.theta += velocity.current.theta
+        dragOffset.current.phi = THREE.MathUtils.clamp(
+          dragOffset.current.phi + velocity.current.phi,
+          -Math.PI / 3,
+          Math.PI / 3
+        )
+        velocity.current.theta *= 0.92
+        velocity.current.phi *= 0.92
+      }
 
-      // Shortest path interpolation for theta
-      let diffTheta = (targetTheta - current.current.theta) % (2 * Math.PI)
-      if (diffTheta > Math.PI) diffTheta -= 2 * Math.PI
-      if (diffTheta < -Math.PI) diffTheta += 2 * Math.PI
-      current.current.theta += diffTheta * lerpSpeed
+      // If not actively tweening to a focused campus or skyline
+      if (!isTargetingCampus.current && viewMode === 'globe') {
+        const base = interpolateWaypoints(scrollProgress)
 
-      current.current.targetX += (base.targetX - current.current.targetX) * lerpSpeed
-      current.current.targetY += (base.targetY - current.current.targetY) * lerpSpeed
-      current.current.targetZ += (base.targetZ - current.current.targetZ) * lerpSpeed
+        let ambient = 0
+        if (activeChapter === 0 && !isDragging.current) {
+          ambient = delta * 0.02
+          dragOffset.current.theta += ambient
+        }
 
-      setCameraRadius(current.current.radius)
+        const targetPhi = THREE.MathUtils.clamp(base.phi + dragOffset.current.phi, minPhi, maxPhi)
+        const targetTheta = base.theta + dragOffset.current.theta
+        const targetR = THREE.MathUtils.clamp(base.radius, minRadius, maxRadius)
+
+        const lerpSpeed = Math.min(1, delta * 6.0)
+        current.current.radius += (targetR - current.current.radius) * lerpSpeed
+        current.current.phi += (targetPhi - current.current.phi) * lerpSpeed
+
+        let diffTheta = (targetTheta - current.current.theta) % (2 * Math.PI)
+        if (diffTheta > Math.PI) diffTheta -= 2 * Math.PI
+        if (diffTheta < -Math.PI) diffTheta += 2 * Math.PI
+        current.current.theta += diffTheta * lerpSpeed
+
+        current.current.targetX += (base.targetX - current.current.targetX) * lerpSpeed
+        current.current.targetY += (base.targetY - current.current.targetY) * lerpSpeed
+        current.current.targetZ += (base.targetZ - current.current.targetZ) * lerpSpeed
+
+        setCameraRadius(current.current.radius)
+      }
     }
 
     const { radius, phi, theta, targetX, targetY, targetZ } = current.current

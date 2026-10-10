@@ -9,11 +9,12 @@ import { Modals } from './components/ui/Modals'
 import { ClusterSelectionPopover } from './components/ui/ClusterSelectionPopover'
 import { ScrollStorySections } from './components/ui/ScrollStorySections'
 import { ScrollProgressHUD } from './components/ui/ScrollProgressHUD'
+import { ImmersiveOrbitHUD } from './components/ui/ImmersiveOrbitHUD'
 import { useWorldStore } from './store/useWorldStore'
 import { useLenis } from './hooks/useLenis'
 
 export const App: React.FC = () => {
-  const { loadData } = useWorldStore()
+  const { loadData, isEarthImmersive } = useWorldStore()
 
   // Initialize Lenis smooth scroll engine
   useLenis()
@@ -30,29 +31,37 @@ export const App: React.FC = () => {
       {/* 1. 3D WebGL World Canvas (Pinned) */}
       <WorldScene />
 
-      {/* 2. Scroll Story Narrative Chapters (5 Cinematic Stages) */}
-      <ScrollStorySections />
+      {/* 2. Direct 3D Orbit Immersive Controls (Exclusive to Immersive Mode) */}
+      {isEarthImmersive && <ImmersiveOrbitHUD />}
 
-      {/* 3. Top Navigation Bar (Fixed Spatial Header) */}
-      <TopNav />
+      {/* 3. Normal Narrative & Exploration Overlays (Completely hidden/unmounted in Immersive Orbit) */}
+      {!isEarthImmersive && (
+        <>
+          {/* Scroll Story Narrative Chapters (5 Cinematic Stages) */}
+          <ScrollStorySections />
 
-      {/* 4. Orbital Progress HUD (Fixed Chapter Navigator & Zoom Controls) */}
-      <ScrollProgressHUD />
+          {/* Top Navigation Bar (Fixed Spatial Header) */}
+          <TopNav />
 
-      {/* 5. Left Collapsible Top 10 Leaderboard */}
-      <TopTenDrawer />
+          {/* Orbital Progress HUD (Fixed Chapter Navigator & Zoom Controls) */}
+          <ScrollProgressHUD />
 
-      {/* 6. Bottom Weekly Derby Ticker: DTU vs NSUT */}
-      <WeeklyDerbyTicker />
+          {/* Left Collapsible Top 10 Leaderboard */}
+          <TopTenDrawer />
 
-      {/* 7. Right Campus Inspection Detail Card */}
-      <CampusInspectionCard />
+          {/* Bottom Weekly Derby Ticker: DTU vs NSUT */}
+          <WeeklyDerbyTicker />
 
-      {/* 8. Cluster Selection Popover for dense regional campus groups */}
-      <ClusterSelectionPopover />
+          {/* Right Campus Inspection Detail Card */}
+          <CampusInspectionCard />
 
-      {/* 9. Modals (Recycle, Sponsor Pitch, Vault, Learn) */}
-      <Modals />
+          {/* Cluster Selection Popover for dense regional campus groups */}
+          <ClusterSelectionPopover />
+
+          {/* Modals (Recycle, Sponsor Pitch, Vault, Learn) */}
+          <Modals />
+        </>
+      )}
     </div>
   )
 }

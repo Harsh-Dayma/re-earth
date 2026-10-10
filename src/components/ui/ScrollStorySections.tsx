@@ -16,7 +16,8 @@ export const ScrollStorySections: React.FC = () => {
     selectCampus,
     toggleLeftDrawer,
     openModal,
-    campuses
+    campuses,
+    enterImmersiveOrbit
   } = useWorldStore()
 
   const dtu = campuses.find((c) => c.id === 'dtu')
@@ -91,7 +92,7 @@ export const ScrollStorySections: React.FC = () => {
             </button>
 
             <button
-              onClick={() => scrollToChapter(3)}
+              onClick={() => enterImmersiveOrbit()}
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full liquid-glass-pill liquid-glass-control text-text-secondary hover:text-text-primary text-xs font-medium tracking-wide transition-all"
             >
               <Orbit className="w-3.5 h-3.5 text-cyan" />

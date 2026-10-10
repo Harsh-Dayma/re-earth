@@ -4,7 +4,17 @@ import { useWorldStore } from '../store/useWorldStore'
 
 export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null)
-  const { setScrollProgress, setActiveChapter, registerLenisScrollTo } = useWorldStore()
+  const { setScrollProgress, setActiveChapter, registerLenisScrollTo, isEarthImmersive } = useWorldStore()
+
+  // Pause Lenis when in Direct 3D Orbit mode so wheel events zoom the planet without scrolling the page
+  useEffect(() => {
+    if (!lenisRef.current) return
+    if (isEarthImmersive) {
+      lenisRef.current.stop()
+    } else {
+      lenisRef.current.start()
+    }
+  }, [isEarthImmersive])
 
   useEffect(() => {
     // Initialize Lenis with cinematic physics

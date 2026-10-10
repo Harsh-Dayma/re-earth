@@ -2,6 +2,7 @@ import React, { useRef, useMemo } from 'react'
 import * as THREE from 'three'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { GLOBE_RADIUS } from '../../utils/geo'
+import { useWorldStore } from '../../store/useWorldStore'
 import atmosphereVert from '../../shaders/atmosphere.vert.glsl'
 import atmosphereFrag from '../../shaders/atmosphere.frag.glsl'
 
@@ -68,6 +69,9 @@ export const Earth: React.FC<EarthProps> = ({ autoRotate = false }) => {
     })
   }, [nightMap])
 
+  const { isEarthImmersive, enterImmersiveOrbit, returnToWorld, selectedCampusId } = useWorldStore()
+  const pointerDownPos = useRef({ x: 0, y: 0 })
+
   // Frame tick for rotation
   useFrame((_, delta) => {
     if (autoRotate && earthGroupRef.current) {
@@ -77,8 +81,37 @@ export const Earth: React.FC<EarthProps> = ({ autoRotate = false }) => {
 
   return (
     <group ref={earthGroupRef}>
-      {/* 1. Day Earth Surface */}
-      <mesh castShadow receiveShadow>
+      {/* 1. Day Earth Surface (Interactive target for immersive mode activation) */}
+      <mesh
+        castShadow
+        receiveShadow
+        onPointerDown={(e) => {
+          pointerDownPos.current = { x: e.clientX, y: e.clientY }
+        }}
+        onClick={(e) => {
+          const dist = Math.hypot(
+            e.clientX - pointerDownPos.current.x,
+            e.clientY - pointerDownPos.current.y
+          )
+          if (dist > 6) return
+
+          if (!isEarthImmersive) {
+            enterImmersiveOrbit()
+          } else if (selectedCampusId) {
+            returnToWorld()
+          }
+        }}
+        onPointerOver={() => {
+          if (!isEarthImmersive) {
+            document.body.style.cursor = 'pointer'
+          }
+        }}
+        onPointerOut={() => {
+          if (!isEarthImmersive) {
+            document.body.style.cursor = 'default'
+          }
+        }}
+      >
         <sphereGeometry args={[GLOBE_RADIUS, 64, 64]} />
         <meshStandardMaterial
           map={dayMap}
@@ -91,14 +124,14 @@ export const Earth: React.FC<EarthProps> = ({ autoRotate = false }) => {
         />
       </mesh>
 
-      {/* 2. City Night Lights Layer */}
-      <mesh renderOrder={1}>
+      {/* 2. City Night Lights Layer (Visual only, bypass raycasting) */}
+      <mesh renderOrder={1} raycast={() => null}>
         <sphereGeometry args={[GLOBE_RADIUS * 1.001, 64, 64]} />
         <primitive object={nightMaterial} attach="material" />
       </mesh>
 
-      {/* 3. Outer Atmosphere Limb Glow (scaled to 1.045) */}
-      <mesh renderOrder={2}>
+      {/* 3. Outer Atmosphere Limb Glow (Visual only, bypass raycasting) */}
+      <mesh renderOrder={2} raycast={() => null}>
         <sphereGeometry args={[GLOBE_RADIUS * 1.045, 64, 64]} />
         <primitive object={atmosphereMaterial} attach="material" />
       </mesh>

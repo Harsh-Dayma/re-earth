@@ -31,6 +31,10 @@ interface WorldState {
   isFreeOrbit: boolean
   lenisScrollTo: ((target: string | number) => void) | null
 
+  // Direct 3D Orbit Immersive Mode
+  isEarthImmersive: boolean
+  immersiveResetTrigger: number
+
   // Actions
   loadData: () => Promise<void>
   setViewMode: (mode: ViewMode) => void
@@ -44,6 +48,11 @@ interface WorldState {
   openModal: (modal: string | null) => void
   setQuality: (q: 'high' | 'low') => void
   resetDemo: () => Promise<void>
+
+  // Direct 3D Orbit Actions
+  enterImmersiveOrbit: () => void
+  exitImmersiveOrbit: () => void
+  resetImmersiveCamera: () => void
 
   // Cluster Actions
   setCameraRadius: (r: number) => void
@@ -82,6 +91,10 @@ export const useWorldStore = create<WorldState>((set, get) => ({
   activeChapter: 0,
   isFreeOrbit: false,
   lenisScrollTo: null,
+
+  // Direct 3D Orbit Immersive Defaults
+  isEarthImmersive: false,
+  immersiveResetTrigger: 0,
 
   loadData: async () => {
     const campuses = await mockApi.getLeaderboard()
@@ -230,5 +243,33 @@ export const useWorldStore = create<WorldState>((set, get) => ({
       const targetId = chapterIds[Math.max(0, Math.min(chapterIds.length - 1, chapter))]
       lenisScrollTo(`#${targetId}`)
     }
+  },
+
+  enterImmersiveOrbit: () => {
+    set({
+      isEarthImmersive: true,
+      viewMode: 'globe',
+      isIntro: false,
+      isLeftDrawerOpen: false,
+      activeModal: null,
+      selectedCampusId: null,
+      selectedRegionId: null,
+      activeCluster: null,
+      isClusterExploded: false
+    })
+  },
+
+  exitImmersiveOrbit: () => {
+    set({
+      isEarthImmersive: false,
+      selectedCampusId: null
+    })
+  },
+
+  resetImmersiveCamera: () => {
+    set((state) => ({
+      immersiveResetTrigger: state.immersiveResetTrigger + 1,
+      selectedCampusId: null
+    }))
   }
 }))
