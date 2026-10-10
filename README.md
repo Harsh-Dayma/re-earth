@@ -38,15 +38,28 @@ Every participating university rises as a three-dimensional holographic beacon d
 - Global macro overview clusters tightly packed universities (e.g. Delhi NCR, Bay Area) into unified spatial beacons.
 - Regional zoom smoothly fans out towers along tangential micro-arcs, ensuring zero collision or visual overlap.
 
+### 6. 🌌 Living Sub-Silicon Environment & Atmospheric Aurora
+- **Midnight Obsidian Substrate:** Multi-stop deep space gradient (`#05070D` base with layered `#0C1628` ellipse mesh) replacing flat black with cosmic depth.
+- **Chapter-Reactive Atmospheric Halo:** 130vw living atmospheric halo behind the globe that breathes organically (`14s` period) and dynamically shifts color profiles across narrative chapters:
+  - *Genesis:* Celestial deep cyan, verdigris & reclaimed copper.
+  - *The Crisis:* Smoldering e-waste copper & lithium amber.
+  - *Beacons:* Luminous verdigris & beacon teal.
+  - *The Derby:* High-voltage competitive emerald & trophy gold.
+  - *Circular OS:* Closed-loop cyan & silicon lavender.
+- **Traveling Electronic Trace Pulses:** Staggered SVG dash-offset currents streaming along PCB bus lines from outer IC packages (`ASIC // RE-EARTH` and `PMIC // RECOVERY`) into central planetary orbits.
+- **Deep Space Stellar Depth:** Three.js `<Stars>` and floating cosmic `<Sparkles>` micro-particles providing authentic 3D parallax on camera navigation.
+- **Spatial Specular Lens:** Cursor-tracking radial spotlight illuminating fine circuit traces and optical fiducials.
+
 ---
 
 ## 📸 Interface Gallery
 
 | Feature | Visual Preview |
 |---|---|
-| **Campus Inspection Card & Live Boost** | ![Campus Inspection](./screenshots/inspection_card_boost_preview.png) |
-| **Desktop High-Res Overview** | ![Desktop Overview](./screenshots/desktop-1920x1080.png) |
-| **Sponsor Skyline Mode** | ![Sponsor Skyline](./screenshots/desktop-sponsor-skyline.png) |
+| **Cosmic Horizon & Sub-Silicon Background** | ![Cosmic Overview](./screenshots/evolution_desktop_1440.png) |
+| **Campus Inspection Card & Live Boost** | ![Campus Inspection](./screenshots/evolution_ch3_inspect.png) |
+| **Chapter 1: The Crisis (Copper Horizon)** | ![Crisis Chapter](./screenshots/evolution_ch1.png) |
+| **Mobile Responsive Adaptation** | ![Mobile Layout](./screenshots/evolution_mobile_390.png) |
 
 ---
 

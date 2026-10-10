@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { Stars, Sparkles } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Earth } from './Earth'
 import { CampusTowers } from './CampusTowers'
@@ -38,9 +39,29 @@ export const WorldScene: React.FC = () => {
         <ambientLight intensity={0.65} color="#38434F" />
         <directionalLight position={[7, 4, 5]} intensity={1.9} color="#FFF8EB" castShadow />
         <directionalLight position={[-6, -3, -5]} intensity={0.45} color="#0D9488" />
+        <directionalLight position={[-8, -5, -6]} intensity={0.35} color="#0EA5E9" />
 
         <Suspense fallback={null}>
           <CameraController />
+
+          {/* Deep Space Starfield & Subtle Floating Cosmic Stardust (Layer F) */}
+          <Stars
+            radius={110}
+            depth={55}
+            count={quality === 'high' ? 1800 : 750}
+            factor={3.2}
+            saturation={0.25}
+            fade
+            speed={0.6}
+          />
+          <Sparkles
+            count={quality === 'high' ? 36 : 14}
+            scale={[16, 16, 16]}
+            size={1.6}
+            speed={0.22}
+            opacity={0.32}
+            color="#38BDF8"
+          />
 
           {viewMode === 'globe' ? (
             <group>
@@ -71,9 +92,9 @@ export const WorldScene: React.FC = () => {
           {quality === 'high' && (
             <EffectComposer enableNormalPass={false}>
               <Bloom
-                luminanceThreshold={0.65}
-                luminanceSmoothing={0.3}
-                intensity={1.25}
+                luminanceThreshold={0.68}
+                luminanceSmoothing={0.25}
+                intensity={1.15}
                 mipmapBlur
               />
             </EffectComposer>
