@@ -1,4 +1,4 @@
-﻿# REΓÇöEARTH ≡ƒîìΓÜí
+# RE—EARTH 🌍⚡
 ### Planetary E-Waste Telemetry & 3D Cybernetic Circular Ecosystem
 
 > **"Turn dead tech into living Earth."**  
@@ -13,26 +13,26 @@
 [![YouTube Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/iOFiawsw2dg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A855F7?style=for-the-badge)](LICENSE)
 
-≡ƒöù **Live Application (AWS Amplify):** [https://main.d3cukmq7nr5vg3.amplifyapp.com/](https://main.d3cukmq7nr5vg3.amplifyapp.com/)  
-≡ƒô║ **Full Video Demonstration:** [https://youtu.be/iOFiawsw2dg](https://youtu.be/iOFiawsw2dg)  
-≡ƒÅå **Built for:** [WeMakeDevs AWS Environmental Hackathon 2026](https://www.wemakedevs.org/aws/env)
+🔗 **Live Application (AWS Amplify):** [https://main.d3cukmq7nr5vg3.amplifyapp.com/](https://main.d3cukmq7nr5vg3.amplifyapp.com/)  
+📺 **Full Video Demonstration:** [https://youtu.be/iOFiawsw2dg](https://youtu.be/iOFiawsw2dg)  
+🏆 **Built for:** [WeMakeDevs AWS Environmental Hackathon 2026](https://www.wemakedevs.org/aws/env)
 
 ---
 
-## ≡ƒÅå Official Hackathon Evaluation ΓÇö 29 / 30
+## 🏆 Official Hackathon Evaluation — 29 / 30
 
-REΓÇöEARTH was built for the **[WeMakeDevs AWS Environmental Hackathon](https://www.wemakedevs.org/aws/env)**, evaluated on October 14, 2026:
+RE—EARTH was built for the **[WeMakeDevs AWS Environmental Hackathon](https://www.wemakedevs.org/aws/env)**, evaluated on October 14, 2026:
 
 | Evaluation Criterion | Score Awarded | Result Status |
 |---|:---:|:---:|
-| **AWS Usage** | **10 / 10** | Γ¡É∩╕Å Perfect Score |
-| **Idea and Impact** | **8 / 8** | Γ¡É∩╕Å Perfect Score |
-| **Execution** | **4 / 4** | Γ¡É∩╕Å Perfect Score |
-| **Demo Video** | **3 / 4** | Γ¡É∩╕Å High Scoring |
-| **Design & Usability** | **4 / 4** | Γ¡É∩╕Å Perfect Score |
-| **TOTAL SCORE** | **29 / 30** | ≡ƒÑç Flagship Winner Grade |
+| **AWS Usage** | **10 / 10** | ⭐️ Perfect Score |
+| **Idea and Impact** | **8 / 8** | ⭐️ Perfect Score |
+| **Execution** | **4 / 4** | ⭐️ Perfect Score |
+| **Demo Video** | **3 / 4** | ⭐️ High Scoring |
+| **Design & Usability** | **4 / 4** | ⭐️ Perfect Score |
+| **TOTAL SCORE** | **29 / 30** | 🥇 Flagship Winner Grade |
 
-### ≡ƒÆ¼ Official Judge's Feedback
+### 💬 Official Judge's Feedback
 > *"Visually stunning 3D platform combining Apple VisionOS liquid glass UI with a robust serverless backend utilizing Amplify, API Gateway v2, Lambda, DynamoDB with TTL, S3 compliance vaults, and Cedar policy enforcement."*
 
 <p align="center">
@@ -41,20 +41,20 @@ REΓÇöEARTH was built for the **[WeMakeDevs AWS Environmental Hackathon](https
 
 ---
 
-## ≡ƒÄ¼ Live Video Demonstration
+## 🎬 Live Video Demonstration
 
-> ≡ƒô║ **Watch the Complete End-to-End Walkthrough on YouTube**:  
-> ≡ƒæë [**https://youtu.be/iOFiawsw2dg**](https://youtu.be/iOFiawsw2dg)  
+> 📺 **Watch the Complete End-to-End Walkthrough on YouTube**:  
+> 👉 [**https://youtu.be/iOFiawsw2dg**](https://youtu.be/iOFiawsw2dg)  
 >
 > *Featuring live demonstration of the 3D WebGL planetary digital twin, Apple VisionOS Liquid Glass UI, 3D Cybernetic Forest, 6-stage NIST SP 800-88 R1 triage wizard, 1-Day optical QR locker reservation pass, physical kiosk load-cell scale validation, and real-time AWS serverless architecture.*
 
-[![REΓÇöEARTH Full Video Demonstration](https://img.youtube.com/vi/iOFiawsw2dg/maxresdefault.jpg)](https://youtu.be/iOFiawsw2dg)
+[![RE—EARTH Full Video Demonstration](https://img.youtube.com/vi/iOFiawsw2dg/maxresdefault.jpg)](https://youtu.be/iOFiawsw2dg)
 
 ---
 
-## ≡ƒî┐ The Paradigm Shift: From Cold Concrete to a Living Cybernetic Forest
+## 🌿 The Paradigm Shift: From Cold Concrete to a Living Cybernetic Forest
 
-Traditional sustainability dashboards present lifeless bar charts or concrete urban skyscrapers. REΓÇöEARTH rejects sterile buildings in favor of a **living 3D Cybernetic Forest**:
+Traditional sustainability dashboards present lifeless bar charts or concrete urban skyscrapers. RE—EARTH rejects sterile buildings in favor of a **living 3D Cybernetic Forest**:
 
 - **Procedural Organic Trees, Not Concrete Blocks:** Instead of concrete skyscrapers, each participating university campus and corporate underwriter is embodied by a procedurally generated **Cybernetic Tree** (`CyberneticTree.tsx`) growing directly on the 3D globe and forest glade.
 - **Diversion-Driven Canopy Volume:** Using our deterministic spatial layout engine (`computeCyberneticTreeLayout`), each tree's height, trunk girth, and tiered foliage canopy scale dynamically with the verified kilograms of e-waste diverted from landfills.
@@ -62,26 +62,26 @@ Traditional sustainability dashboards present lifeless bar charts or concrete ur
 - **Stylized Tiered Canopy Shelves:** Modeled as architectural cyberpunk cedar/bonsai canopies with floating ambient motes and glowing spores (`<Sparkles>`), turning dry waste data into a visually rewarding ecosystem students want to nurture.
 
 ```
-[ Verified Hardware Ingestion ] ΓöÇΓöÇ> [ Scale & Tare Math ] ΓöÇΓöÇ> [ NIST Wipe Verified ]
-                                                                      Γöé
-[ Living 3D Cybernetic Forest ] <ΓöÇΓöÇ [ Procedural Canopy Surge ] <ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+[ Verified Hardware Ingestion ] ──> [ Scale & Tare Math ] ──> [ NIST Wipe Verified ]
+                                                                      │
+[ Living 3D Cybernetic Forest ] <── [ Procedural Canopy Surge ] <──────┘
 ```
 
 ---
 
-## ≡ƒîƒ Key Highlights & Engineering Innovations
+## 🌟 Key Highlights & Engineering Innovations
 
-### 1. ≡ƒî▓ Interactive 3D Planetary Engine & Cybernetic Forest
+### 1. 🌲 Interactive 3D Planetary Engine & Cybernetic Forest
 - **GPU-Accelerated Three.js & WebGL:** Renders a multi-textured 3D Earth alongside the cybernetic forest at a rock-solid 60 FPS.
 - **Zero-Overlap Spatial Packing:** `validateTreeClearances` algorithm enforces radial clearance margins so trees never clip or visually overlap regardless of university count.
-- **Atmospheric Aurora Shader:** Custom GLSL atmospheric halo that breathes dynamically and shifts color across narrative chapters (Genesis Cyan Γ₧ö Crisis Copper Γ₧ö Derby Emerald Γ₧ö Circular OS Lavender).
+- **Atmospheric Aurora Shader:** Custom GLSL atmospheric halo that breathes dynamically and shifts color across narrative chapters (Genesis Cyan ➔ Crisis Copper ➔ Derby Emerald ➔ Circular OS Lavender).
 
-### 2. ≡ƒ¬ƒ Authentic Apple VisionOS Liquid Glass Material System
+### 2. 🪟 Authentic Apple VisionOS Liquid Glass Material System
 - Multi-layer glass material with directional ambient gradient sheens (`linear-gradient(135deg, ...)`).
 - Dual-layer specular edge highlights (`inset 0 1px 1px 0 rgba(255, 255, 255, 0.22)` top highlight + `inset 0 -1px 1px 0 rgba(0, 0, 0, 0.45)` bottom refraction shadow).
 - Micro-beveled `.specular-rim` accents catching dynamic simulated lighting with tactile `scale(0.97)` spring physics on interactive elements.
 
-### 3. ΓÜû∩╕Å 6-Stage Physical Drop-Off & Kiosk Operator Console
+### 3. ⚖️ 6-Stage Physical Drop-Off & Kiosk Operator Console
 A complete, two-sided hardware verification pipeline:
 1. **Stage 1 (Vault):** Device identification (smartphones, laptops, lithium packs, PCBs).
 2. **Stage 2 (Triage):** Structural inspection and battery thermal state.
@@ -91,36 +91,36 @@ A complete, two-sided hardware verification pipeline:
 6. **Stage 6 (Pass):** Ephemeral optical QR pass generation with dynamic countdown.
 - **Kiosk Operator Terminal:** Digital scale tare calibration, hardware weight logging down to the gram, and automated flag checks for swollen hazardous batteries.
 
-### 4. ≡ƒÅó Corporate ESG Sponsorship Portal & Collegiate Derby
+### 4. 🏢 Corporate ESG Sponsorship Portal & Collegiate Derby
 - **Collegiate War:** Real-time leaderboard where campuses duel on rolling diversion cycles.
 - **Corporate Guardians:** Enterprise partners (Google, Apple, TCS, Intel, Tesla Energy) underwrite campus pods, receiving audit-grade Scope 3 ESG green reports detailing verified avoided $CO_2$ and rare earth recovery.
 
-### 5. ≡ƒô£ 5-Chapter Cinematic Scroll-Driven Storytelling
+### 5. 📜 5-Chapter Cinematic Scroll-Driven Storytelling
 - Powered by **Lenis v1.3** smooth-scroll physics with cubic Hermite camera dampening.
 - **Chemical Crisis Ledger:** Interactive toxicity risk matrix modeling aquifer diffusion and half-lives for Lead ($Pb$), Mercury ($Hg$), Cadmium ($Cd$), and Brominated Flame Retardants ($Br$).
 
 ---
 
-## Γÿü∩╕Å AWS Serverless Cloud Architecture (Scored 10 / 10)
+## ☁️ AWS Serverless Cloud Architecture (Scored 10 / 10)
 
-REΓÇöEARTH is built on an enterprise-grade, **100% serverless, $0-idle-cost AWS architecture**. When there is no active traffic, cloud spend is strictly **$0.00**. When drop-offs surge, AWS scales automatically on demand.
+RE—EARTH is built on an enterprise-grade, **100% serverless, $0-idle-cost AWS architecture**. When there is no active traffic, cloud spend is strictly **$0.00**. When drop-offs surge, AWS scales automatically on demand.
 
 <p align="center">
   <img src="./screenshots/aws_architecture.jpg" alt="RE-EARTH AWS Serverless Cloud Architecture Diagram" width="900" />
 </p>
 
-### The 6 AWS Cloud Services in REΓÇöEARTH:
+### The 6 AWS Cloud Services in RE—EARTH:
 
-| AWS Service | Resource / ID | Role in REΓÇöEARTH |
+| AWS Service | Resource / ID | Role in RE—EARTH |
 |---|---|---|
 | **AWS Amplify Hosting** | App `d3cukmq7nr5vg3` | **Global Edge Hosting:** Serves the 3D WebGL Three.js client, Cybernetic Forest, and VisionOS UI via Edge CDN caching with sub-2-second load times globally. |
 | **Amazon API Gateway** | HTTP API v2 (`bzj8npggw7`) | **Low-Latency Routing:** Lightweight serverless API layer routing `/health`, `/reserve`, `/verify`, and `/certificate` with strict CORS for development and production. |
 | **AWS Lambda** | `re-earth-api-service` (Python 3.11) | **Serverless Compute:** Executes NIST SP 800-88 sanitization verification, computes diversion credits, allocates locker slots, and generates signed optical QR payloads. |
-| **Amazon DynamoDB** | `SmrtKioskReservations`<br>`SmrtInstitutionalLedger` | **NoSQL Persistence with Native TTL:**<br>ΓÇó `SmrtKioskReservations`: Manages smart locker holds with native DynamoDB Time-To-Live (`reservationExpiresAt`) for zero-cron automated cleanup.<br>ΓÇó `SmrtInstitutionalLedger`: Immutable append-only log of every drop-off, powering live leaderboards. |
+| **Amazon DynamoDB** | `SmrtKioskReservations`<br>`SmrtInstitutionalLedger` | **NoSQL Persistence with Native TTL:**<br>• `SmrtKioskReservations`: Manages smart locker holds with native DynamoDB Time-To-Live (`reservationExpiresAt`) for zero-cron automated cleanup.<br>• `SmrtInstitutionalLedger`: Immutable append-only log of every drop-off, powering live leaderboards. |
 | **Amazon S3** | `re-earth-certificates-346560662330` | **Compliance Vault:** Blocked from all public access. Securely stores NIST-compliant certificates and PDF handover passes, accessible solely via short-lived **Presigned URLs**. |
 | **Amazon CloudWatch** | Dashboard: `RE-EARTH-Amplify-Operations`<br>Alarms: Health & Latency | **Operational Telemetry:** Real-time latency tracking (~185ms), health probes, and automated alerts for downtime prevention. |
 
-### ≡ƒ¢í∩╕Å AWS Cedar Policy Enforcement (`cedar-policy`)
+### 🛡️ AWS Cedar Policy Enforcement (`cedar-policy`)
 We integrated the open-source **AWS Cedar** policy language (`src/services/cedarPolicies.cedar`) to write readable, tamper-proof client-side hardware safety guardrails:
 ```cedar
 // Block dangerous or swollen lithium batteries from unattended lockers
@@ -135,19 +135,19 @@ forbid(
 
 ---
 
-## ≡ƒöä End-to-End Cloud Transaction Lifecycle
+## 🔄 End-to-End Cloud Transaction Lifecycle
 
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Student as ≡ƒÄô Student Client
-    participant Amplify as ≡ƒÜÇ AWS Amplify Hosting
-    participant APIGW as ΓÜí Amazon API Gateway (v2)
-    participant Lambda as ΓÜÖ∩╕Å AWS Lambda (Python 3.11)
-    participant DDB as ≡ƒùä∩╕Å DynamoDB (TTL Enabled)
-    participant S3 as ≡ƒ¬ú Amazon S3 Vault
-    actor Kiosk as ≡ƒñû Smart Kiosk Pod / Operator
-    participant CW as ≡ƒôè Amazon CloudWatch
+    actor Student as 🎓 Student Client
+    participant Amplify as 🚀 AWS Amplify Hosting
+    participant APIGW as ⚡ Amazon API Gateway (v2)
+    participant Lambda as ⚙️ AWS Lambda (Python 3.11)
+    participant DDB as 🗄️ DynamoDB (TTL Enabled)
+    participant S3 as 🪣 Amazon S3 Vault
+    actor Kiosk as 🤖 Smart Kiosk Pod / Operator
+    participant CW as 📊 Amazon CloudWatch
 
     Student->>Amplify: 1. Request 3D Web App (Edge CDN)
     Amplify-->>Student: 2. Return SPA Bundle (~185ms Latency)
@@ -168,24 +168,24 @@ sequenceDiagram
 
 ---
 
-## ≡ƒôï Live AWS Deployment & Resource Registry
+## 📋 Live AWS Deployment & Resource Registry
 
 The following resources are actively deployed in **`us-east-1`**:
 
 | AWS Service | Resource Name / Identifier | ARN / Endpoint | Status |
 |---|---|---|---|
-| **AWS Amplify** | `re-earth` (`d3cukmq7nr5vg3`) | [https://main.d3cukmq7nr5vg3.amplifyapp.com](https://main.d3cukmq7nr5vg3.amplifyapp.com) | ≡ƒƒó **LIVE (HTTP 200)** |
-| **Amazon API Gateway** | `re-earth-http-api` (`bzj8npggw7`) | `https://bzj8npggw7.execute-api.us-east-1.amazonaws.com` | ≡ƒƒó **ACTIVE (HTTP API v2)** |
-| **AWS Lambda** | `re-earth-api-service` | `arn:aws:lambda:us-east-1:346560662330:function:re-earth-api-service` | ≡ƒƒó **ACTIVE (Python 3.11)** |
-| **Amazon DynamoDB** | `SmrtKioskReservations` | Partition Key: `reservationId` (S) \| TTL: `reservationExpiresAt` | ≡ƒƒó **ACTIVE (TTL Enabled)** |
-| **Amazon DynamoDB** | `SmrtInstitutionalLedger` | Partition Key: `campusId` (S) \| Sort Key: `timestamp` (N) | ≡ƒƒó **ACTIVE (On-Demand)** |
-| **Amazon S3** | `re-earth-certificates-346560662330` | `s3://re-earth-certificates-346560662330/certificates/` | ≡ƒƒó **ACTIVE (Private + Presigned)** |
-| **Amazon CloudWatch** | `RE-EARTH-Amplify-Operations` | Dashboard: `RE-EARTH-Amplify-Operations` | ≡ƒƒó **ACTIVE (Health: [OK])** |
-| **AWS Cedar** | `cedarPolicies.cedar` | Open-source authorization engine (`src/services/cedarPolicies.cedar`) | ≡ƒƒó **ACTIVE (Local + Edge)** |
+| **AWS Amplify** | `re-earth` (`d3cukmq7nr5vg3`) | [https://main.d3cukmq7nr5vg3.amplifyapp.com](https://main.d3cukmq7nr5vg3.amplifyapp.com) | 🟢 **LIVE (HTTP 200)** |
+| **Amazon API Gateway** | `re-earth-http-api` (`bzj8npggw7`) | `https://bzj8npggw7.execute-api.us-east-1.amazonaws.com` | 🟢 **ACTIVE (HTTP API v2)** |
+| **AWS Lambda** | `re-earth-api-service` | `arn:aws:lambda:us-east-1:346560662330:function:re-earth-api-service` | 🟢 **ACTIVE (Python 3.11)** |
+| **Amazon DynamoDB** | `SmrtKioskReservations` | Partition Key: `reservationId` (S) \| TTL: `reservationExpiresAt` | 🟢 **ACTIVE (TTL Enabled)** |
+| **Amazon DynamoDB** | `SmrtInstitutionalLedger` | Partition Key: `campusId` (S) \| Sort Key: `timestamp` (N) | 🟢 **ACTIVE (On-Demand)** |
+| **Amazon S3** | `re-earth-certificates-346560662330` | `s3://re-earth-certificates-346560662330/certificates/` | 🟢 **ACTIVE (Private + Presigned)** |
+| **Amazon CloudWatch** | `RE-EARTH-Amplify-Operations` | Dashboard: `RE-EARTH-Amplify-Operations` | 🟢 **ACTIVE (Health: [OK])** |
+| **AWS Cedar** | `cedarPolicies.cedar` | Open-source authorization engine (`src/services/cedarPolicies.cedar`) | 🟢 **ACTIVE (Local + Edge)** |
 
 ---
 
-## ≡ƒô╕ Interface Gallery
+## 📸 Interface Gallery
 
 | View | Screenshot Preview |
 |---|---|
@@ -198,29 +198,29 @@ The following resources are actively deployed in **`us-east-1`**:
 
 ---
 
-## ≡ƒ¢á∩╕Å Complete Technology Stack
+## 🛠️ Complete Technology Stack
 
 ```
 Frontend & 3D Engine:
-Γö£ΓöÇΓöÇ React 18.3 + TypeScript 5.4 + Vite 5.2
-Γö£ΓöÇΓöÇ Three.js 0.164 + @react-three/fiber 8.16 + @react-three/drei 9.105
-Γö£ΓöÇΓöÇ @react-three/postprocessing 2.16 (Selective Bloom, MipmapBlur)
-Γö£ΓöÇΓöÇ Framer Motion 11.1 + GSAP 3.12 + Lenis 1.3 (Inertial Scroll)
-ΓööΓöÇΓöÇ Tailwind CSS 3.4 + Apple VisionOS Liquid Glass Design System
+├── React 18.3 + TypeScript 5.4 + Vite 5.2
+├── Three.js 0.164 + @react-three/fiber 8.16 + @react-three/drei 9.105
+├── @react-three/postprocessing 2.16 (Selective Bloom, MipmapBlur)
+├── Framer Motion 11.1 + GSAP 3.12 + Lenis 1.3 (Inertial Scroll)
+└── Tailwind CSS 3.4 + Apple VisionOS Liquid Glass Design System
 
 AWS Cloud Architecture ($0 Idle Cost):
-Γö£ΓöÇΓöÇ AWS Amplify Hosting (Edge CDN & Continuous Git CI/CD)
-Γö£ΓöÇΓöÇ Amazon API Gateway (HTTP API v2 with CORS)
-Γö£ΓöÇΓöÇ AWS Lambda (Python 3.11 Runtime Microservice)
-Γö£ΓöÇΓöÇ Amazon DynamoDB (Tables with Native TTL Lifecycle)
-Γö£ΓöÇΓöÇ Amazon S3 (NIST SP 800-88 R1 Compliance Vault + Presigned URLs)
-Γö£ΓöÇΓöÇ Amazon CloudWatch (Synthetics, Alarms & Operations Dashboard)
-ΓööΓöÇΓöÇ AWS Cedar Policy Engine (Open-Source Hardware Safety Verification)
+├── AWS Amplify Hosting (Edge CDN & Continuous Git CI/CD)
+├── Amazon API Gateway (HTTP API v2 with CORS)
+├── AWS Lambda (Python 3.11 Runtime Microservice)
+├── Amazon DynamoDB (Tables with Native TTL Lifecycle)
+├── Amazon S3 (NIST SP 800-88 R1 Compliance Vault + Presigned URLs)
+├── Amazon CloudWatch (Synthetics, Alarms & Operations Dashboard)
+└── AWS Cedar Policy Engine (Open-Source Hardware Safety Verification)
 ```
 
 ---
 
-## ≡ƒÜÇ Getting Started Locally
+## 🚀 Getting Started Locally
 
 ### Prerequisites
 - Node.js (v18.0 or higher)
@@ -254,13 +254,13 @@ npm run preview
 
 ---
 
-## ≡ƒæÑ The Team
+## 👥 The Team
 
-- **Kamil Ahmad Hashmi** ΓÇö 3D Planetary Engine (Three.js/WebGL), Cybernetic Forest procedural architecture, Apple VisionOS Liquid Glass UI design system, and deployment pipelines.
-- **Harsh Dayma** ([@Harsh-Dayma](https://github.com/Harsh-Dayma)) — AWS Cloud Architecture (Amplify, Lambda, DynamoDB, S3, CloudWatch, Cedar), 6-Stage Recycle intake workflow, Kiosk Operator Terminal, RBAC Authentication System, Corporate Sponsorship portal, and Leaflet interactive campus map.
+- **Kamil Ahmad Hashmi** — 3D Planetary Engine (Three.js/WebGL), Cybernetic Forest procedural architecture, Apple VisionOS Liquid Glass UI design system, and deployment pipelines.
+- **Harsh Dayma** ([@Harsh-Dayma](https://github.com/Harsh-Dayma)) — AWS Cloud Architecture (Amplify, Lambda, DynamoDB, S3, CloudWatch, Cedar), Role-Based Authentication System (RBAC, 3-role secure sessions, anti-tamper switching), Corporate Sponsorship Portal (ESG tiers, Terra mascot, closed-loop animations), Digital Vault (QR handover, NIST wipe certificates, presigned URLs), 6-Stage Recycle intake workflow, Kiosk Operator Terminal, and Leaflet interactive campus map.
 
 ---
 
-## ≡ƒôä License
+## 📄 License
 
-MIT License. Designed and engineered for the REΓÇöEARTH planetary circularity initiative. Built for the **WeMakeDevs AWS Environmental Hackathon 2026**.
+MIT License. Designed and engineered for the RE—EARTH planetary circularity initiative. Built for the **WeMakeDevs AWS Environmental Hackathon 2026**.
