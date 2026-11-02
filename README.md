@@ -257,10 +257,11 @@ npm run preview
 ## 👥 The Team
 
 - **Kamil Ahmad Hashmi** — 3D Planetary Engine (Three.js/WebGL), Cybernetic Forest procedural architecture, Apple VisionOS Liquid Glass UI design system, and deployment pipelines.
-- **Co-Creator** — 6-Stage Recycle intake workflow, Kiosk Operator Terminal with digital tare scale calibration, Corporate Sponsorship portal, and AWS Cedar policy integration.
+- **Harsh Dayma** ([@Harsh-Dayma](https://github.com/Harsh-Dayma)) � AWS Cloud Architecture (Amplify, Lambda, DynamoDB, S3, CloudWatch, Cedar), 6-Stage Recycle intake workflow, Kiosk Operator Terminal, RBAC Authentication System, Corporate Sponsorship portal, and Leaflet interactive campus map.
 
 ---
 
 ## 📄 License
 
 MIT License. Designed and engineered for the RE—EARTH planetary circularity initiative. Built for the **WeMakeDevs AWS Environmental Hackathon 2026**.
+
